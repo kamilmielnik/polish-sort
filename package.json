@@ -1,0 +1,45 @@
+{
+  "name": "polish-sort",
+  "version": "1.0.0",
+  "description": "Comparator functions for dealing with Polish accented characters when sorting in JavaScript",
+  "author": {
+    "name": "Kamil Mielnik",
+    "email": "kamil.adam.mielnik@gmail.com",
+    "url": "http://kamilmielnik.com/"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kamilmielnik/polish-sort.git"
+  },
+  "bugs": {
+    "url": "https://github.com/kamilmielnik/polish-sort/issues"
+  },
+  "homepage": "https://github.com/kamilmielnik/polish-sort#readme",
+  "keywords": [
+    "sort",
+    "sorting",
+    "polish",
+    "accented",
+    "characters",
+    "sortowanie",
+    "polskie",
+    "znaki",
+    "diakrytyczne",
+    "comparator",
+    "alphabet"
+  ],
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "test": "jest --coverage",
+    "test:watch": "jest --coverage --watchAll"
+  },
+  "devDependencies": {
+    "jest": "^22.4.3"
+  },
+  "jest": {
+    "collectCoverage": true
+  }
+}
