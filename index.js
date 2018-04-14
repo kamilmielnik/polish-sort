@@ -1,32 +1,34 @@
 const ALPHABET = 'aąbcćdeęfghijklłmnńoópqrsśtuvwxyzźż';
 const LETTERS = ALPHABET.split('').map((letter) => `${letter}${letter.toUpperCase()}`).join('');
 const DIGITS = '01234567989';
-const SPECIAL_CHARACTERS = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`}|{~';
+const SPECIAL_CHARACTERS = ' !"#$%&\'()*+,-./:;<=>?@[\\]^_`}|{~'; // ASCII order
 const CHARACTERS = `${SPECIAL_CHARACTERS}${DIGITS}${LETTERS}`;
 const identity = (a) => a;
 
 const createComparator = ({ getter = identity, ignoreCase = false } = {}) => (a, b) => {
-  let aRaw = getter(a) || '';
-  let bRaw = getter(b) || '';
+  let aValue = getter(a) || '';
+  let bValue = getter(b) || '';
   if (ignoreCase) {
-    aRaw = aRaw.toLowerCase();
-    bRaw = bRaw.toLowerCase();
+    aValue = aValue.toLowerCase();
+    bValue = bValue.toLowerCase();
   }
-  const max = Math.min(aRaw.length, bRaw.length);
+  const aLength = aValue.length;
+  const bLength = bValue.length;
+  const maxIndexToCheck = Math.min(aLength, bLength);
   let index = 0;
-  while(index < max && aRaw[index] === bRaw[index]) {
+  while(index < maxIndexToCheck && aValue[index] === bValue[index]) {
     index++;
   }
-  index = Math.min(index, max);
-  const aLastValue = CHARACTERS.indexOf(aRaw[index]);
-  const bLastValue = CHARACTERS.indexOf(bRaw[index]);
+  index = Math.min(index, maxIndexToCheck);
+  const aLastValue = CHARACTERS.indexOf(aValue[index]);
+  const bLastValue = CHARACTERS.indexOf(bValue[index]);
   if (aLastValue < bLastValue) {
     return -1;
   }
   if (aLastValue > bLastValue) {
     return 1;
   }
-  return bRaw.length - aRaw.length;
+  return bLength - aLength;
 };
 
 const caseInsensitiveComparator = createComparator({ ignoreCase: true });

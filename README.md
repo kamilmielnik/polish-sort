@@ -19,9 +19,7 @@ npm install --save polish-sort
 ```
 
 ## API
-There are 3 functions:
-
-#### `caseInsensitiveComparator`
+#### `caseInsensitiveComparator(a, b)`
 Useful when you want to sort an `Array` of `String`. Just pass the reference as an argument to `Array.prototype.sort`.
 ```javascript
 import { caseInsensitiveComparator } from 'polish-sort';
@@ -29,7 +27,7 @@ import { caseInsensitiveComparator } from 'polish-sort';
 [ 'łc', 'Ła', 'łb' ].sort(caseInsensitiveComparator); // ["Ła", "łb", "łc"]
 ```
 
-#### `caseSensitiveComparator`
+#### `caseSensitiveComparator(a, b)`
 Useful when you want to sort an `Array` of `String`. Just pass the reference as an argument to `Array.prototype.sort`.
 ```javascript
 import { caseSensitiveComparator } from 'polish-sort';
@@ -39,8 +37,8 @@ import { caseSensitiveComparator } from 'polish-sort';
 
 #### `createComparator(options)`
 Useful when you want to sort an `Array` of `Object` by some attribute. Returns a comparator. Accepts 1 optional argument of type `Object` with the following (both optional) attributes:
-- `getter` - `Function` - default: `(x) => x`
-- `ignoreCase` - `Boolean` - default: `false`
+- `getter` - `Function` - defaults to: `(a) => a`
+- `ignoreCase` - `Boolean` - defaults to: `false`
 
 ```javascript
 import { createComparator } from 'polish-sort';
@@ -51,13 +49,13 @@ const comparator = createComparator({
 });
 
 [
-  { name: 'la' },
-  { name: 'łb' },
-  { name: 'lc' }
+  { name: 'la', age: 1 },
+  { name: 'łb', age: 2 },
+  { name: 'lc', age: 3 }
 ].sort(comparator);
 // [
-//   { name: "la" },
-//   { name: "lc" },
-//   { name: "łb" }
+//   { name: "la", age: 1 },
+//   { name: "lc", age: 3 },
+//   { name: "łb", age: 2 }
 // ]
 ```
