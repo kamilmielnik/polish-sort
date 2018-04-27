@@ -5,7 +5,7 @@ Comparator functions for dealing with Polish accented characters when sorting in
 ## Why
 JavaScript fails to sort polish characters properly. Example:
 ```
-[ 'la', 'łb', 'lc' ].sort(); // ["la", "lc", "łb"]
+[ 'la', 'łb', 'z' ].sort(); // ["la", "z", "łb"]
 ```
 There is `String.prototype.localeCompare` to deal with localized comparisons, but it does not work as one would expect it to:
 ```
