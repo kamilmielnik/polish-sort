@@ -1,17 +1,17 @@
 # polish-sort
 ## Description
-Comparator functions for dealing with Polish accented characters when sorting in JavaScript. Features 100% test coverage. Since JavaScript sorting is not stable, I encourage you to use it with [stable](https://www.npmjs.com/package/stable).
+Comparator functions for dealing with Polish accented characters when sorting in JavaScript. Features 100% test coverage.
 
 ## Why
 JavaScript fails to sort polish characters properly. Example:
 ```
-[ 'la', 'łb', 'lc' ].sort(); // ["la", "lc", "łb"]
+[ 'la', 'łb', 'z' ].sort(); // ["la", "z", "łb"]
 ```
-There is `String.prototype.localeCompare` to deal with localized comparisons, but it does not work as one would expect it to:
+Now, there is `String.prototype.localeCompare` to deal with localized comparisons:
 ```
-[ 'la', 'łb', 'lc' ].sort((a, b) => a.localeCompare(b)); // ["la", "łb", "lc"]
+[ 'la', 'łb', 'z' ].sort((a, b) => a.localeCompare(b, 'pl')); // ["la", "z", "łb"]
 ```
-At the time I'm writing this (2018/04/13), none of `String.prototype.localeCompare` options seem to produce the desired result (`["la", "lc", "łb"]`) in Google Chrome (65.0.3325.181) or Electron (1.8.4). So I have created this library.
+Unfortunately, it does not work in older browsers, such as IE <= 10 or Safari <= 9.1.
 
 ## Installation
 ```
