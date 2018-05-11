@@ -1,6 +1,6 @@
 {
   "name": "polish-sort",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "Comparator functions for dealing with Polish accented characters when sorting in JavaScript",
   "author": {
     "name": "Kamil Mielnik",

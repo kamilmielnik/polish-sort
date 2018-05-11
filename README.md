@@ -9,7 +9,7 @@ JavaScript fails to sort polish characters properly. Example:
 ```
 Now, there is `String.prototype.localeCompare` to deal with localized comparisons:
 ```
-[ 'la', 'łb', 'z' ].sort((a, b) => a.localeCompare(b, 'pl')); // ["la", "z", "łb"]
+[ 'la', 'łb', 'z' ].sort((a, b) => a.localeCompare(b, 'pl')); // ["la", "łb", "z"]
 ```
 Unfortunately, it does not work in older browsers, such as IE <= 10 or Safari <= 9.1.
 
