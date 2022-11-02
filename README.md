@@ -1,4 +1,13 @@
+# ⚠️ Deprecated ⚠️
+
+Use [String.prototype.localeCompare](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/localeCompare).
+
+
+----
+
+
 # polish-sort
+
 ## Description
 Comparator functions for dealing with Polish accented characters when sorting in JavaScript. Features 100% test coverage.
 
